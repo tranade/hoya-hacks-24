@@ -1,17 +1,49 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Open popup function
-  function openPopup() {
-    document.getElementById("popup-container").style.display = "block";
+// Function to validate the sign up form
+function validateSignUpForm() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+      alert("All fields are required");
+      return false;
   }
 
-  // Close popup function
-  function closePopup() {
-    document.getElementById("popup-container").style.display = "none";
+  if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return false;
   }
 
-  // Event listener for login button to open popup
-  document.getElementById("loginBtn").addEventListener("click", openPopup);
+  // Additional validation logic can be added here if needed
 
-  // Event listener for close popup button
-  document.getElementById("close-popup-btn").addEventListener("click", closePopup);
+  return true;
+}
+
+// Function to validate the login form
+function validateLoginForm() {
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  if (email.trim() === '' || password.trim() === '') {
+      alert("Email and password are required");
+      return false;
+  }
+
+  // Additional validation logic can be added here if needed
+
+  return true;
+}
+
+// Event listeners for form submission
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+  if (!validateSignUpForm()) {
+      event.preventDefault();
+  }
+});
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  if (!validateLoginForm()) {
+      event.preventDefault();
+  }
 });
