@@ -242,7 +242,7 @@ body {
   padding: 0;
 }
 
-.container {
+.container-login {
   max-width: 400px;
   margin: 100px auto;
   padding: 20px;
@@ -251,7 +251,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.container h2 {
+.container-login h2 {
   margin-bottom: 20px;
 }
 
