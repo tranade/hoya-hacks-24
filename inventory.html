@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-   <meta charset="UTF-8">
-   <title>PlatePal</title>
-   <script src="script.js"></script>
- <link rel="stylesheet" href="style.css">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+<head>
+  <meta charset="UTF-8">
+  <title>PlatePal</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
   <nav>
     <div class="navbar">
@@ -21,10 +20,11 @@
     </div>
   </nav>
 
-  <!-- Login form popup -->
-  <div id="loginPopup" class="popup">
+  <!-- Popup container -->
+  <div id="popup-container" class="popup-container">
+    <!-- Popup content -->
     <div class="popup-content">
-      <span class="close" onclick="closeLoginPopup()">&times;</span>
+      <span class="close" id="close-popup-btn">&times;</span>
       <h2>Login</h2>
       <form id="loginForm">
         <label for="username">Username:</label>
@@ -36,11 +36,10 @@
     </div>
   </div>
 
-
-<div> 
-<h1 class = "Header"> My Inventory </h1>
-<p class = " divider">________________________________________________________________________________________________________________________________________________________________________</p>
-</div>
+  <div> 
+    <h1 class="Header"> My Inventory </h1>
+    <p class="divider">________________________________________________________________________________________________________________________________________________________________________</p>
+  </div>
 
   <div class="flex-container">
     <div class="card">
@@ -51,7 +50,7 @@
         <p>Bought on 23rd Jan</p> 
       </div>
     </div>
-  
+
     <div class="card">
       <img class="card-image" src="assets/broccoli.jpg" alt="Avatar">
       <div class="container">
@@ -61,10 +60,11 @@
       </div>
     </div>
   </div>
-  
 
   <div class="button">
     <a href="/"><i class="fas fa-arrow-up"></i></a>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
