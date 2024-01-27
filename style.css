@@ -57,6 +57,19 @@ nav .navbar .menu{
     border-radius: 20px;
   }
 
+  /* Login button styles */
+.navbar #loginBtn {
+    background-color: #426B1F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Inter';
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
 section{
   display: flex;
   height: 100vh;
@@ -144,3 +157,5 @@ section{
     justify-content: flex-start;
     margin: 150px 70px;
   }
+
+  
