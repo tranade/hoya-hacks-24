@@ -141,7 +141,7 @@ nav .navbar .logo a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 400px;
-  margin: 20px;
+  margin: 20px 0px 20px 20px;
   border-radius: 24px;
 }
 
@@ -149,8 +149,20 @@ nav .navbar .logo a {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+.card-inventory {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 200px;
+  margin: 20px 0px 20px 20px;
+  border-radius: 24px;
+}
+
+.card-inventory:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
 .container {
-  padding: 15px 15px 30px 30px;
+  padding: 15px 0px 30px 30px;
   font-family: 'Inter';
   font-weight: 600;
 }
@@ -176,6 +188,14 @@ nav .navbar .logo a {
   width: 400px;
 }
 
+.card-inventory-image {
+  border-radius: 24px 24px 0px 0px;
+  max-width: 100%;
+  max-height: 100%;
+  height: 150px;
+  width: 200px;
+}
+
 .Header {
   position: relative;
   top: 130px;
@@ -196,10 +216,20 @@ nav .navbar .logo a {
   font-family: 'Newsreader';
 }
 
+.divider-2 {
+  position: relative;
+  /* margin-top: 5px; */
+  /* top: 130px; */
+  left: 6%;
+  color: rgb(234, 224, 224);
+  font-weight: 600;
+  font-family: 'Newsreader';
+}
+
 .flex-container {
   display: flex;
   justify-content: flex-start;
-  margin: 150px 70px;
+  margin: 150px 0px 70px 70px;
 }
 
 /* Input field styles */
@@ -296,4 +326,66 @@ body {
 
 .input-field p a:hover {
   text-decoration: underline;
+}
+
+
+/* API */
+#recipe-button {
+  padding: 20px;
+  margin: 10px 90px;
+  /* width: 100%; */
+  /* padding: 10px; */
+  background-color: #426B1F;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  /* font-family: "Inter";
+  font-weight: 400; */
+  font-size: 12px;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+
+#loader {
+  border: 16px solid darkgray;
+  border-radius: 50%;
+  border-top: 16px solid green;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.recipe-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 80%;
+  margin: auto;
+  /* align-items: center; */
+  border-radius: 24px;
+}
+
+.Header-2 {
+  position: relative;
+  /* top: 130px; */
+  left: 6%;
+  color: black;
+  font-family: 'Newsreader';
+  font-weight: 415;
+  font-size: 20px;
+  letter-spacing: 1px;
 }

@@ -1,5 +1,3 @@
-import "../style.css";
-
 // Constants
 const ENDPOINT_COMPLETIONS = "https://api.openai.com/v1/chat/completions";
 const ENDPOINT_IMAGES = "https://api.openai.com/v1/images/generations";
@@ -8,10 +6,12 @@ const ENDPOINT_IMAGES = "https://api.openai.com/v1/images/generations";
 let API_KEY;
 
 // helper functions to get blurb from the chat completions api endpoint
-async function getBlurb(title, theme) {
+async function getBlurb(i1, i2) {
+
+  console.log("entered get blurb")
 
   // defines the prompt to send to the api based on title and theme
-  const prompt = `Generate a manga blurb given this title (${title}) and theme (${theme}). Limit your response to 70 words.`;
+  const prompt = `Give me easy recipes using (${i1}) and (${i2}).`;
 
   // gets the response from api with defined parameters for fetch command
   const response = await fetch(ENDPOINT_COMPLETIONS, {
@@ -25,6 +25,8 @@ async function getBlurb(title, theme) {
       Authorization: `Bearer ${API_KEY}`
     }
   })
+
+  console.log("finished fetch")
 
   // extracts the data from the response
   const data = await response.json();
@@ -60,65 +62,71 @@ async function getCoverImage(blurb) {
 // Event handlers
 async function handleFormSubmission(e) {
 
+  console.log("button")
+
   // prevents the default function of submitting the button
   e.preventDefault();
 
-  // gets the title and theme elements
-  const title = document.getElementById("mangaTitle");
-  const theme = document.getElementById("mangaTheme");
+  // // gets the title and theme elements
+  // const title = document.getElementById("mangaTitle");
+  // const theme = document.getElementById("mangaTheme");
 
-  // disables text inputs from the user
-  title.disabled = true;
-  theme.disabled = true;
+  // // disables text inputs from the user
+  // title.disabled = true;
+  // theme.disabled = true;
 
-  // gets the values that the user inputted
-  const titleText = title.value;
-  const themeText = theme.value;
+  // // gets the values that the user inputted
+  // const titleText = title.value;
+  // const themeText = theme.value;
 
-  // checks if a title was inputted, otherwise gives a warning
-  if (!titleText) {
-    alert(
-      "Please specify a title.",
-    );
-    return;
-  }
+  // // checks if a title was inputted, otherwise gives a warning
+  // if (!titleText) {
+  //   alert(
+  //     "Please specify a title.",
+  //   );
+  //   return;
+  // }
 
-  // checks if a theme was inputted, otherwise gives a warning
-  if (!themeText) {
-    alert(
-      "Please specify a theme.",
-    );
-    return;
-  }
+  // // checks if a theme was inputted, otherwise gives a warning
+  // if (!themeText) {
+  //   alert(
+  //     "Please specify a theme.",
+  //   );
+  //   return;
+  // }
   
   // grabs relevant elements for updating the DOM
-  const spinner = document.getElementById("spinner");
-  const generate = document.getElementById("generateButton")
-  const blurb = document.getElementById("generatedBlurb");
-  const image = document.getElementById("coverImage");
+  const spinner = document.getElementById("loader");
+  // const generate = document.getElementById("generateButton")
+  // const blurb = document.getElementById("generatedBlurb");
+  // const image = document.getElementById("coverImage");
 
   // hides and shows certain elements
-  spinner.classList.remove("hidden");
-  generate.classList.add("hidden");
-  blurb.classList.add("hidden");
-  image.classList.add("hidden");
+  spinner.style.display = "block";
+  // generate.classList.add("hidden");
+  // blurb.classList.add("hidden");
+  // image.classList.add("hidden");
 
   // try-catch block to handle api errors
   try {
-
+  
+    console.log("hi")
     // gets blurb by calling helper function
-    const blurbText = await getBlurb(titleText, themeText);
+    // const blurbText = await getBlurb(titleText, themeText);
+    const blurbText = await getBlurb("tomato", "olive");
 
-    // updates DOM to show blurb
-    blurb.classList.remove("hidden");
-    blurb.textContent = blurbText;
+    console.log(blurbText)
+
+    // // updates DOM to show blurb
+    // blurb.classList.remove("hidden");
+    // blurb.textContent = blurbText;
     
-    // gets image url by calling helper function
-    const imageURL = await getCoverImage(blurbText);
+    // // gets image url by calling helper function
+    // const imageURL = await getCoverImage(blurbText);
     
-    // updated DOM to show image
-    image.classList.remove("hidden");
-    image.src = imageURL;
+    // // updated DOM to show image
+    // image.classList.remove("hidden");
+    // image.src = imageURL;
   } catch (error) {
 
     // prints to console and displays alert if error occurs
@@ -128,24 +136,25 @@ async function handleFormSubmission(e) {
     );
 
     // resets the DOM
-    reset();
+    // reset();
 
     // returns from function
     return;
   }
 
   // updates DOM to prepare for new imputs
-  spinner.classList.add("hidden");
-  generate.classList.remove("hidden");
-  title.disabled = false;
-  theme.disabled = false;
+  spinner.style.display = "none";
+  // spinner.classList.add("hidden");
+  // generate.classList.remove("hidden");
+  // title.disabled = false;
+  // theme.disabled = false;
 }
 
 // helper function to set display to original display (when you reload page)
 function reset() {
 
   // grabs relecant elements
-  const spinner = document.getElementById("spinner");
+  const spinner = document.getElementById("loader");
   const generate = document.getElementById("generateButton")
   const blurb = document.getElementById("generatedBlurb");
   const image = document.getElementById("coverImage");
@@ -176,9 +185,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // gets button element from document
-  const mangaInputForm = document.getElementById("mangaInputForm");
+  const mangaInputForm = document.getElementById("recipe-button");
 
   // adds submit event listener to button which calls helper function
-  mangaInputForm.addEventListener("submit", handleFormSubmission);
+  mangaInputForm.addEventListener("click", handleFormSubmission);
 });
 
+// function printhi() {
+//   console.log("hi")
+// }
