@@ -46,6 +46,16 @@ nav .navbar .menu{
   text-decoration: none;
 }
 
+.navbar .menu li a.active{
+    color: white;
+    font-size: 12px;
+    font-family: 'Inter';
+    font-weight: 400;
+    text-decoration: none;
+    background-color: #426B1F;
+    border-radius: 20px;
+  }
+
 section{
   display: flex;
   height: 100vh;
