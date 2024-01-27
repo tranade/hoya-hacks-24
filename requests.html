@@ -60,7 +60,7 @@
         background: #fff;
         padding: 20px;
         border-radius: 10px;
-        width: 300px;
+        width: 350px;
       }
 
     </style>
@@ -90,57 +90,56 @@
     <div class="cardFeed">
       <img src="assets/tomato.png" class="img"> 
       <div class="container">
-        <h3>1lb Heirloom tomato</h3> 
-        <p style="position: relative; top: 3px;">Expiring by 27th Jan</p> 
-        <p style="position: relative; top: 3px;">Bought on 23rd Jan</p> 
+        <h3>Heirloom tomato</h3> 
+        <p style="position: relative; top: 3px;">Quantity: 2 lb</p> 
+        <p style="position: relative; top: 3px;">Required by: 01/31/2024</p> 
+        <p style="position: relative; top: 3px;">Contact Info: (919) 802-5997 | riyagunda555@gmail.com</p> 
       </div>
     </div>
-
-    <div class="cardFeed" style="margin: 30px 80px 0px 80px;">
-      <img src="assets/ginger.png" class="img"> 
-      <div class="container">
-        <h3>2lb Organic ginger</h3> 
-        <p style="position: relative; top: 3px;">Expiring by 30th Jan</p> 
-        <p style="position: relative; top: 3px;">Bought on 23rd Jan</p> 
-      </div>
-    </div>
-
-    <div class="cardFeed" style="margin: 30px 80px 0px 80px;">
+    
+    <div class="cardFeed">
       <img src="assets/tomato.png" class="img"> 
       <div class="container">
-        <h3>1lb Heirloom tomato</h3> 
-        <p style="position: relative; top: 3px;">Expiring by 27th Jan</p> 
-        <p style="position: relative; top: 3px;">Bought on 23rd Jan</p> 
+        <h3>Heirloom tomato</h3> 
+        <p style="position: relative; top: 3px;">Quantity: 2 lb</p> 
+        <p style="position: relative; top: 3px;">Required by: 01/31/2024</p> 
+        <p style="position: relative; top: 3px;">Contact Info: (919) 802-5997 | riyagunda555@gmail.com</p> 
       </div>
     </div>
 
-    <div class="cardFeed" style="margin: 30px 80px 0px 80px;">
-      <img src="assets/broccoli.jpg" class="img"> 
+    <div class="cardFeed">
+      <img src="assets/tomato.png" class="img"> 
       <div class="container">
-        <h3>1lb Fresh Broccoli</h3> 
-        <p style="position: relative; top: 3px;">Expiring by 31sy Jan</p> 
-        <p style="position: relative; top: 3px;">Bought on 26st Jan</p> 
+        <h3>Heirloom tomato</h3> 
+        <p style="position: relative; top: 3px;">Quantity: 2 lb</p> 
+        <p style="position: relative; top: 3px;">Required by: 01/31/2024</p> 
+        <p style="position: relative; top: 3px;">Contact Info: (919) 802-5997 | riyagunda555@gmail.com</p> 
       </div>
     </div>
-  </div>
+
+   
 
     <!-- Overlay with Form -->
     <div class="overlay" id="overlay">
       <div class="form-container">
+        <h1> Make a request</h1>
         <label for="foodName">Food Name:</label>
         <input type="text" id="foodName" name="foodName"><br>
 
         <label for="foodName">Quantity (lb):</label>
         <input type="text" id="quant" name="quant"><br>
 
-        <label for="expirationDate">Expiration Date:</label>
+        <label for="expirationDate">Required by:</label>
         <input type="date" id="expirationDate" name="expirationDate"><br>
 
-        <label for="purchaseDate">Purchase Date:</label>
-        <input type="date" id="purchaseDate" name="purchaseDate"><br>
-
-        <label for="image">Choose an image:</label>
+        <label for="image">Image for reference:</label>
         <input type="file" id="image" name="image" accept="image/*"><br>
+
+        <label for="foodName">Email:</label>
+        <input type="text" id="email" name="email"><br>
+
+        <label for="foodName">Phone number:</label>
+        <input type="text" id="number" name="number"><br>
 
         <!-- Add other form fields as needed -->
 
@@ -165,16 +164,18 @@
         var foodName = document.getElementById("foodName").value;
         var quant = document.getElementById("quant").value;
         var expirationDate = document.getElementById("expirationDate").value;
-        var purchaseDate = document.getElementById("purchaseDate").value;
         var imageInput = document.getElementById("image");
+        var email = document.getElementById("email").value;
+        var number = document.getElementById("number").value;
         var imageSrc = imageInput.files.length > 0 ? URL.createObjectURL(imageInput.files[0]) : "assets/default-image.png";
 
         var newItem = {
           foodName: foodName,
           quant: quant,
           expirationDate: expirationDate,
-          purchaseDate: purchaseDate,
-          imageSrc: imageSrc
+          imageSrc: imageSrc, 
+          email: email,
+          number: number
           // Add other properties as needed
         };
 
@@ -199,9 +200,10 @@
 
         var containerElement = document.createElement("div");
         containerElement.className = "container";
-        containerElement.innerHTML = "<h3>" + item.quant + "lb " +  item.foodName + "</h3>" +
-          "<p>Expiring by " + item.expirationDate + "</p>" +
-          "<p>Bought on " + getCurrentDate() + "</p>";
+        containerElement.innerHTML = "<h3>" + item.foodName + "</h3>" +
+          "<p>Quantity: " + item.quant + " lb</p>" +
+          "<p>Required by: " + getCurrentDate() + "</p>" + "<p>Contact Info: " + item.number +
+            " | " + item.email + "</p>";
 
         newCardFeed.appendChild(imgElement);
         newCardFeed.appendChild(containerElement);
