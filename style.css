@@ -198,7 +198,7 @@ nav .navbar .logo a {
 
 .Header {
   position: relative;
-  top: 130px;
+  top: 150px;
   left: 6%;
   color: black;
   font-family: 'Newsreader';
@@ -209,7 +209,7 @@ nav .navbar .logo a {
 
 .divider {
   position: relative;
-  top: 130px;
+  top: 150px;
   left: 6%;
   color: rgb(234, 224, 224);
   font-weight: 600;
