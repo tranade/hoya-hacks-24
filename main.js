@@ -7,8 +7,6 @@ let API_KEY;
 // helper functions to get blurb from the chat completions api endpoint
 async function getBlurb(i1, i2) {
 
-  // console.log("entered get blurb")
-
   // defines the prompt to send to the api based on title and theme
   const prompt = `Generate easy recipes using ${i1} and ${i2}. Use bullet points for steps and add <br><br> between different recipes.`;
 
@@ -24,8 +22,6 @@ async function getBlurb(i1, i2) {
       Authorization: `Bearer ${API_KEY}`
     }
   })
-
-  // console.log("finished fetch")
 
   // extracts the data from the response
   const data = await response.json();
@@ -54,8 +50,6 @@ async function handleFormSubmission(e) {
     let blurbText = await getBlurb("tomatoes", "broccoli");
     blurbText = blurbText.replaceAll("-", "<br>-");
     blurbText = blurbText.replaceAll("Recipe", "<br><br>Recipe");
-
-    console.log(blurbText);
 
     blurb.innerHTML = blurbText;
 
