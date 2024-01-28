@@ -38,14 +38,6 @@ nav .navbar .logo a {
   letter-spacing: 1.5px;
 }
 
-/* nav .navbar .logo a {
-  color: #426B1F;
-  font-family: 'Inter';
-  font-size: 22px;
-  font-weight: 400;
-  text-decoration: none;
-} */
-
 .navbar .menu {
   display: flex;
 }
@@ -422,7 +414,7 @@ body {
   font-size: 12px;
   color: white;
   /* color: white; */
-  padding: 0px 30px;
+  padding: 0px 30px 30px 30px;
 }
 
 .link-container {

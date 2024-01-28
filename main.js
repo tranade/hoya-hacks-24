@@ -8,7 +8,7 @@ let API_KEY;
 async function getBlurb(i1, i2) {
 
   // defines the prompt to send to the api based on title and theme
-  const prompt = `Generate easy recipes using ${i1} and ${i2}. Use bullet points for steps and add <br><br> between different recipes.`;
+  const prompt = `Generate 5 easy recipes using ${i1} and ${i2}. Use bullet points for steps and add <br><br> between different recipes.`;
 
   // gets the response from api with defined parameters for fetch command
   const response = await fetch(ENDPOINT_COMPLETIONS, {
