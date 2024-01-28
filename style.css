@@ -414,4 +414,11 @@ body {
   /* padding-right: 130px; */
 /* } */
 
-#generated-blurb
+.blurb-text {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+  /* color: white; */
+  padding: 0px 30px;
+}

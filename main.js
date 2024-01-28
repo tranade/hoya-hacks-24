@@ -98,7 +98,7 @@ async function handleFormSubmission(e) {
   // grabs relevant elements for updating the DOM
   const spinner = document.getElementById("loader");
   // const generate = document.getElementById("generateButton")
-  // const blurb = document.getElementById("generatedBlurb");
+  const blurb = document.getElementById("generatedBlurb");
   // const image = document.getElementById("coverImage");
 
   // hides and shows certain elements
@@ -116,6 +116,8 @@ async function handleFormSubmission(e) {
     const blurbText = await getBlurb("tomato", "olive");
 
     console.log(blurbText)
+
+    blurb.textContent = blurbText;
 
     // // updates DOM to show blurb
     // blurb.classList.remove("hidden");
