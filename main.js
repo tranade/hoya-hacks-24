@@ -7,10 +7,10 @@ let API_KEY;
 // helper functions to get blurb from the chat completions api endpoint
 async function getBlurb(i1, i2) {
 
-  console.log("entered get blurb")
+  // console.log("entered get blurb")
 
   // defines the prompt to send to the api based on title and theme
-  const prompt = `Give me easy recipes using (${i1}) and (${i2}). Format the text so that the spacing will display correctly in an HTML div.`;
+  const prompt = `Generate easy recipes using ${i1} and ${i2}. Use bullet points for steps and add <br><br> between different recipes.`;
 
   // gets the response from api with defined parameters for fetch command
   const response = await fetch(ENDPOINT_COMPLETIONS, {
@@ -25,7 +25,7 @@ async function getBlurb(i1, i2) {
     }
   })
 
-  console.log("finished fetch")
+  // console.log("finished fetch")
 
   // extracts the data from the response
   const data = await response.json();
@@ -49,19 +49,21 @@ async function handleFormSubmission(e) {
 
   // try-catch block to handle api errors
   try {
-  
-    console.log("hi")
 
     // gets blurb by calling helper function
-    const blurbText = await getBlurb("tomato", "olive");
+    let blurbText = await getBlurb("tomatoes", "broccoli");
+    blurbText = blurbText.replaceAll("-", "<br>-");
+    blurbText = blurbText.replaceAll("Recipe", "<br><br>Recipe");
 
-    blurb.textContent = blurbText;
+    console.log(blurbText);
+
+    blurb.innerHTML = blurbText;
 
   } catch (error) {
 
     // prints to console and displays alert if error occurs
     console.log("An error occurred.");
-    
+
     alert(
       "An error occurred.",
     );
