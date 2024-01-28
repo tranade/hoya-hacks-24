@@ -11,7 +11,7 @@ async function getBlurb(i1, i2) {
   console.log("entered get blurb")
 
   // defines the prompt to send to the api based on title and theme
-  const prompt = `Give me easy recipes using (${i1}) and (${i2}).`;
+  const prompt = `Give me easy recipes using (${i1}) and (${i2}). Format the text so that the spacing will display correctly in an HTML div.`;
 
   // gets the response from api with defined parameters for fetch command
   const response = await fetch(ENDPOINT_COMPLETIONS, {
@@ -114,6 +114,7 @@ async function handleFormSubmission(e) {
     // gets blurb by calling helper function
     // const blurbText = await getBlurb(titleText, themeText);
     const blurbText = await getBlurb("tomato", "olive");
+    // blurbText.replace('-', '\n');
 
     console.log(blurbText)
 

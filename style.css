@@ -394,6 +394,7 @@ body {
   /* align-items: center; */
   border-radius: 24px;
   background-color: #426B1F;
+  overflow-y: auto;
 }
 
 .Header-2 {
