@@ -424,3 +424,13 @@ body {
   /* color: white; */
   padding: 0px 30px;
 }
+
+.link-container {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  text-decoration: none; /* Remove default link underline */
+}
+
+.link-container p{
+  margin-top: 4px;;
+}
