@@ -33,9 +33,18 @@ nav .navbar .logo a {
   color: #426B1F;
   font-family: 'Newsreader';
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
+  letter-spacing: 1px;
 }
+
+/* nav .navbar .logo a {
+  color: #426B1F;
+  font-family: 'Inter';
+  font-size: 22px;
+  font-weight: 400;
+  text-decoration: none;
+} */
 
 .navbar .menu {
   display: flex;
