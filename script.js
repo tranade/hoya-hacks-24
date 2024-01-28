@@ -34,16 +34,3 @@ function validateLoginForm() {
 
   return true;
 }
-
-// Event listeners for form submission
-document.getElementById("signupForm").addEventListener("submit", function(event) {
-  if (!validateSignUpForm()) {
-      event.preventDefault();
-  }
-});
-
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-  if (!validateLoginForm()) {
-      event.preventDefault();
-  }
-});
