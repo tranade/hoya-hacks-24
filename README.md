@@ -1,4 +1,4 @@
-# hoya-hacks-24
+# PlatePal @ HoyaHacks '24
 
 Check it out on Devpost: https://devpost.com/software/platepal-ek60rc
 
